@@ -1,1 +1,3 @@
-# coyote-api
+# Coyote API
+
+Coyote Commerce API (under development)
