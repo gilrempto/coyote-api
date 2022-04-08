@@ -1,7 +1,8 @@
-using Coyote.API.Application.Catalog;
 using Coyote.Catalog.MongoDB;
 using Coyote.Catalog.MongoDB.Products;
 using Coyote.Catalog.Products;
+using Coyote.Catalog.Products.Application.Services;
+using Coyote.Catalog.Products.Domain.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddCors(options => options.AddDefaultPolicy(builder => builder.WithOrigins("http://localhost:8080")));
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection(nameof(DatabaseSettings)));
-builder.Services.AddTransient<ProductAppService>();
+builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddSingleton<IProductRepository, ProductRepository>();
 
 var app = builder.Build();

@@ -5,11 +5,13 @@ VisualStudioVersion = 17.0.31815.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{A2B8DF0D-A531-4191-8289-CF3A2C855683}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coyote.Catalog", "Catalog\Coyote.Catalog\Coyote.Catalog.csproj", "{4BB020D4-5923-4A04-A8C2-6ADA1C2F15F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coyote.Catalog", "src\Catalog\Coyote.Catalog\Coyote.Catalog.csproj", "{4BB020D4-5923-4A04-A8C2-6ADA1C2F15F7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coyote.Catalog.MongoDB", "Catalog\Coyote.Catalog.MongoDB\Coyote.Catalog.MongoDB.csproj", "{6B928561-4FE9-4266-AC82-E6F5EC08AFFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coyote.Catalog.MongoDB", "src\Catalog\Coyote.Catalog.MongoDB\Coyote.Catalog.MongoDB.csproj", "{6B928561-4FE9-4266-AC82-E6F5EC08AFFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coyote.API", "Coyote.API\Coyote.API.csproj", "{15E66EE8-7EAA-4E2A-BEC2-56D361217653}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coyote.API", "src\Coyote.API\Coyote.API.csproj", "{15E66EE8-7EAA-4E2A-BEC2-56D361217653}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C656BCD8-A94B-442E-A346-140853DBA61B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,8 +36,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{A2B8DF0D-A531-4191-8289-CF3A2C855683} = {C656BCD8-A94B-442E-A346-140853DBA61B}
 		{4BB020D4-5923-4A04-A8C2-6ADA1C2F15F7} = {A2B8DF0D-A531-4191-8289-CF3A2C855683}
 		{6B928561-4FE9-4266-AC82-E6F5EC08AFFB} = {A2B8DF0D-A531-4191-8289-CF3A2C855683}
+		{15E66EE8-7EAA-4E2A-BEC2-56D361217653} = {C656BCD8-A94B-442E-A346-140853DBA61B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B337A6D-FADC-4F0B-985D-EF7462B852DC}

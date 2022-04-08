@@ -1,6 +1,6 @@
-﻿namespace Coyote.API.Models.Catalog
+﻿namespace Coyote.Catalog.Products
 {
-    public class ProductResponse
+    public class ProductOutput
     {
         public Guid Id { get; set; }
         public Guid TypeId { get; set; }

@@ -1,8 +1,8 @@
-﻿namespace Coyote.API.Models.Catalog
+﻿namespace Coyote.Catalog.Products
 {
-    public class ProductRequest
+    public class ProductInput
     {
-        public ProductRequest(Guid typeId, string name)
+        public ProductInput(Guid typeId, string name)
         {
             TypeId = typeId;
             Name = name;

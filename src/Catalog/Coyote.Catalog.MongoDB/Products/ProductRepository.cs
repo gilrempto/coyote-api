@@ -1,4 +1,4 @@
-﻿using Coyote.Catalog.Products;
+﻿using Coyote.Catalog.Products.Domain.Model;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
