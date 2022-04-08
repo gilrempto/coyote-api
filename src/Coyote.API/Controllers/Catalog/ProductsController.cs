@@ -5,12 +5,12 @@ namespace Coyote.API.Controllers.Catalog
 {
     [ApiController]
     [Route("Catalog/[controller]")]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
-        private readonly ILogger<ProductController> logger;
+        private readonly ILogger<ProductsController> logger;
         private readonly IProductService service;
 
-        public ProductController(ILogger<ProductController> logger, IProductService service)
+        public ProductsController(ILogger<ProductsController> logger, IProductService service)
         {
             this.logger = logger;
             this.service = service;
