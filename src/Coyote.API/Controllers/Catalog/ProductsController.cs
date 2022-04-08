@@ -1,63 +1,62 @@
 using Coyote.Catalog.Products;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Coyote.API.Controllers.Catalog
+namespace Coyote.API.Controllers.Catalog;
+
+[ApiController]
+[Route("Catalog/[controller]")]
+public class ProductsController : ControllerBase
 {
-    [ApiController]
-    [Route("Catalog/[controller]")]
-    public class ProductsController : ControllerBase
+    private readonly ILogger<ProductsController> logger;
+    private readonly IProductService service;
+
+    public ProductsController(ILogger<ProductsController> logger, IProductService service)
     {
-        private readonly ILogger<ProductsController> logger;
-        private readonly IProductService service;
+        this.logger = logger;
+        this.service = service;
+    }
 
-        public ProductsController(ILogger<ProductsController> logger, IProductService service)
-        {
-            this.logger = logger;
-            this.service = service;
-        }
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<ProductOutput>>> GetProducts()
+    {
+        return Ok(await service.ListAsync());
+    }
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductOutput>>> GetProducts()
-        {
-            return Ok(await service.ListAsync());
-        }
+    [HttpGet("{id}")]
+    public async Task<ActionResult<ProductOutput>> GetProduct(Guid id)
+    {
+        var response = await service.FindAsync(id);
+        return response != null ? Ok(response) : NotFound();
+    }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ProductOutput>> GetProduct(Guid id)
-        {
-            var response = await service.FindAsync(id);
-            return response != null ? Ok(response) : NotFound();
-        }
+    [HttpPost]
+    public async Task<ActionResult<ProductOutput>> PostProduct(ProductInput request)
+    {
+        var response = await service.CreateAsync(request);
+        return CreatedAtAction(nameof(GetProduct), new { id = response.Id }, response);
+    }
 
-        [HttpPost]
-        public async Task<ActionResult<ProductOutput>> PostProduct(ProductInput request)
-        {
-            var response = await service.CreateAsync(request);
-            return CreatedAtAction(nameof(GetProduct), new { id = response.Id }, response);
-        }
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutProduct(Guid id, ProductInput request)
+    {
+        var response = await service.FindAsync(id);
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProduct(Guid id, ProductInput request)
-        {
-            var response = await service.FindAsync(id);
+        if (response == null)
+            return NotFound();
 
-            if (response == null)
-                return NotFound();
+        await service.UpdateAsync(id, request);
+        return NoContent();
+    }
 
-            await service.UpdateAsync(id, request);
-            return NoContent();
-        }
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteProduct(Guid id)
+    {
+        var product = await service.FindAsync(id);
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(Guid id)
-        {
-            var product = await service.FindAsync(id);
+        if (product == null)
+            return NotFound();
 
-            if (product == null)
-                return NotFound();
-
-            await service.DeleteAsync(id);
-            return NoContent();
-        }
+        await service.DeleteAsync(id);
+        return NoContent();
     }
 }

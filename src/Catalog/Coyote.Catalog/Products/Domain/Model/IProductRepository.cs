@@ -1,11 +1,10 @@
-﻿namespace Coyote.Catalog.Products.Domain.Model
+﻿namespace Coyote.Catalog.Products.Domain.Model;
+
+public interface IProductRepository
 {
-    public interface IProductRepository
-    {
-        public Task<IEnumerable<Product>> ListAsync();
-        public Task<Product?> FindAsync(Guid id);
-        public Task AddAsync(Product product);
-        public Task UpdateAsync(Product product);
-        public Task DeleteAsync(Guid id);
-    }
+    public Task<IEnumerable<Product>> ListAsync();
+    public Task<Product?> FindAsync(Guid id);
+    public Task AddAsync(Product product);
+    public Task UpdateAsync(Product product);
+    public Task DeleteAsync(Guid id);
 }
