@@ -36,3 +36,7 @@ app.UseCors();
 app.MapControllers();
 
 app.Run();
+
+public class Startup
+{
+}
