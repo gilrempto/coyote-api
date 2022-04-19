@@ -31,8 +31,9 @@ public class ProductTests : IClassFixture<WebApplicationFactory<Startup>>
         var client = factory.CreateClient();
         var request = new ProductInput
         {
-            TypeId = Guid.NewGuid(),
             Name = "London Porter",
+            Description = "London Porter desscription.",
+            Price = 45.90m,
             Features = new Dictionary<string, object>
                 {
                     { "ABV", 5.4m },
@@ -49,6 +50,8 @@ public class ProductTests : IClassFixture<WebApplicationFactory<Startup>>
         Product = JsonConvert.DeserializeObject<ProductOutput>(responseJson);
         Assert.NotEqual(Guid.Empty, Product?.Id);
         Assert.Equal(request.Name, Product?.Name);
+        Assert.Equal(request.Price, Product?.Price);
+        Assert.Equal(request.Description, Product?.Description);
         // TODO: Assert product features
     }
 
@@ -93,6 +96,8 @@ public class ProductTests : IClassFixture<WebApplicationFactory<Startup>>
         var request = new ProductInput
         {
             Name = "London Pride",
+            Price = 39.90m,
+            Description = "London Pride description.",
             Features = new Dictionary<string, object>
                 {
                     { "ABV", 4.1m },
@@ -110,6 +115,8 @@ public class ProductTests : IClassFixture<WebApplicationFactory<Startup>>
         var responseJson = await response.Content.ReadAsStringAsync();
         Product = JsonConvert.DeserializeObject<ProductOutput>(responseJson);
         Assert.Equal(request.Name, Product?.Name);
+        Assert.Equal(request.Price, Product?.Price);
+        Assert.Equal(request.Description, Product?.Description);
         // TODO: Assert product features
     }
 

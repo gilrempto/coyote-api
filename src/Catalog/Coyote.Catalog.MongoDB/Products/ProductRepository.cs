@@ -19,10 +19,10 @@ public class ProductRepository : IProductRepository
         collection = database.GetCollection<ProductState>(COLLECTION_NAME);
     }
 
-    private Product ToProduct(ProductState state)
+    private static Product ToProduct(ProductState state)
     {
         var features = BsonSerializer.Deserialize<ProductFeature[]>(state.Features.ToJson());
-        return new Product(state.Id, state.TypeId, state.Name, features);
+        return new Product(state.Id, state.Name, state.Price, state.Description, features);
     }
 
     public async Task<IEnumerable<Product>> ListAsync()
@@ -41,15 +41,23 @@ public class ProductRepository : IProductRepository
     {
         var json = JsonConvert.SerializeObject(product.Features);
         var features = BsonSerializer.Deserialize<BsonArray>(json);
-        var state = new ProductState(product.Id, product.TypeId, product.Name, features);
+        var state = new ProductState
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Description = product.Description,
+            Price = product.Price,
+            Features = features
+        };
         await collection.InsertOneAsync(state);
     }
 
     public async Task UpdateAsync(Product product)
     {
         var state = await collection.Find(p => p.Id == product.Id).FirstOrDefaultAsync();
-        state.TypeId = product.TypeId;
         state.Name = product.Name;
+        state.Description = product.Description;
+        state.Price = product.Price;
         var json = JsonConvert.SerializeObject(product.Features);
         var features = BsonSerializer.Deserialize<BsonArray>(json);
         state.Features = features;
