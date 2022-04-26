@@ -17,7 +17,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{7C93E5B5
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{7CB6427F-7E98-42A2-A60D-FA8B31F4BA78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coyote.Catalog.Tests.Functional", "tests\Catalog\Coyote.Catalog.Tests.Functional\Coyote.Catalog.Tests.Functional.csproj", "{492EC748-E4C6-44C8-BABA-F2DF072CE5EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coyote.Catalog.Tests.Functional", "tests\Catalog\Coyote.Catalog.Tests.Functional\Coyote.Catalog.Tests.Functional.csproj", "{492EC748-E4C6-44C8-BABA-F2DF072CE5EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coyote.Catalog.PostgreSQL", "src\Catalog\Coyote.Catalog.PostgreSQL\Coyote.Catalog.PostgreSQL.csproj", "{0A264676-B83F-4F55-A5FF-18C49E1AB0A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Storage", "Storage", "{86DF7D0A-9E86-4E2A-9601-8A99A8028044}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,10 @@ Global
 		{492EC748-E4C6-44C8-BABA-F2DF072CE5EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{492EC748-E4C6-44C8-BABA-F2DF072CE5EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{492EC748-E4C6-44C8-BABA-F2DF072CE5EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A264676-B83F-4F55-A5FF-18C49E1AB0A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A264676-B83F-4F55-A5FF-18C49E1AB0A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A264676-B83F-4F55-A5FF-18C49E1AB0A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A264676-B83F-4F55-A5FF-18C49E1AB0A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +60,8 @@ Global
 		{15E66EE8-7EAA-4E2A-BEC2-56D361217653} = {C656BCD8-A94B-442E-A346-140853DBA61B}
 		{7CB6427F-7E98-42A2-A60D-FA8B31F4BA78} = {7C93E5B5-0C71-42CC-A698-C7E99895E404}
 		{492EC748-E4C6-44C8-BABA-F2DF072CE5EA} = {7CB6427F-7E98-42A2-A60D-FA8B31F4BA78}
+		{0A264676-B83F-4F55-A5FF-18C49E1AB0A6} = {A2B8DF0D-A531-4191-8289-CF3A2C855683}
+		{86DF7D0A-9E86-4E2A-9601-8A99A8028044} = {C656BCD8-A94B-442E-A346-140853DBA61B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3B337A6D-FADC-4F0B-985D-EF7462B852DC}

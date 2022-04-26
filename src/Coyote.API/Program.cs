@@ -8,6 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options => options.AddDefaultPolicy(builder => builder.WithOrigins("http://localhost:8080").AllowAnyHeader().AllowAnyMethod()));
 builder.Services.AddCatalog(config => config.UsingMongoDB(builder.Configuration.GetConnectionString("Catalog")));
+//builder.Services.AddCatalog(config => config.UsingPostgreSQL(builder.Configuration.GetConnectionString("Catalog")));
 
 var app = builder.Build();
 
@@ -25,6 +26,11 @@ app.UseAuthorization();
 app.UseCors();
 
 app.MapControllers();
+
+//if (app.Environment.IsDevelopment())
+//{
+//    app.InitializeCatalogDatabase();
+//}
 
 app.Run();
 
