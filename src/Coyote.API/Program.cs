@@ -13,7 +13,7 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddCors(options => options.AddDefaultPolicy(builder => builder.WithOrigins("http://localhost:8080")));
+builder.Services.AddCors(options => options.AddDefaultPolicy(builder => builder.WithOrigins("http://localhost:8080").AllowAnyHeader().AllowAnyMethod()));
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection(nameof(DatabaseSettings)));
 builder.Services.AddTransient<IProductService, ProductService>();
 builder.Services.AddSingleton<IProductRepository, ProductRepository>();
