@@ -12,10 +12,10 @@ public class ProductRepository : IProductRepository
     private const string COLLECTION_NAME = "Products";
     private readonly IMongoCollection<ProductState> collection;
 
-    public ProductRepository(IOptions<DatabaseSettings> databaseSettings)
+    public ProductRepository(IOptions<MongoDBOptions> options)
     {
-        var client = new MongoClient(databaseSettings.Value.ConnectionString);
-        var database = client.GetDatabase(databaseSettings.Value.DatabaseName);
+        var client = new MongoClient(options.Value.ConnectionString);
+        var database = client.GetDatabase(options.Value.DatabaseName);
         collection = database.GetCollection<ProductState>(COLLECTION_NAME);
     }
 
