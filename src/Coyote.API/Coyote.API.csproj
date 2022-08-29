@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Catalog\Coyote.Catalog.MongoDB\Coyote.Catalog.MongoDB.csproj" />
-    <ProjectReference Include="..\Catalog\Coyote.Catalog.PostgreSQL\Coyote.Catalog.PostgreSQL.csproj" />
+    <!--<ProjectReference Include="..\Catalog\Coyote.Catalog.PostgreSQL\Coyote.Catalog.PostgreSQL.csproj" />-->
     <ProjectReference Include="..\Catalog\Coyote.Catalog\Coyote.Catalog.csproj" />
   </ItemGroup>
 
