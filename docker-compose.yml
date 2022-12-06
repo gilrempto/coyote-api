@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  coyote-api:
+    image: ${DOCKER_REGISTRY-}coyote-api
+    container_name: coyote-api
+    ports:
+      - 8002:80
+      - 44302:443
+    networks:
+      - coyote-net
+    build:
+      context: .
+      dockerfile: src/Coyote.API/Dockerfile
+    depends_on:
+      - mongo
+
+  mongo:
+    image: ${DOCKER_REGISTRY-}mongo:5.0.9-focal
+    container_name: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - coyote-net
+    volumes:
+      - "D:\\volumes\\coyote\\mongodb\\db:/data/db"
+      - "D:\\volumes\\coyote\\mongodb\\configdb:/data/configdb"
+
+networks:
+  coyote-net:
+    driver: bridge

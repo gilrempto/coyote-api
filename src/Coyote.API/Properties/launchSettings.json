@@ -2,28 +2,13 @@
   "profiles": {
     "Coyote.API": {
       "commandName": "Project",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7077;http://localhost:5077"
-    },
-    "Coyote.API (Swagger)": {
-      "commandName": "Project",
-      "launchBrowser": true,
       "launchUrl": "swagger",
+      "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Test"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7077;http://localhost:5077"
-    },
-    "Docker": {
-      "commandName": "Docker",
-      "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
-      "publishAllPorts": true,
-      "useSSL": true
+      "applicationUrl": "https://localhost:44402;http://localhost:8102"
     }
   },
   "$schema": "https://json.schemastore.org/launchsettings.json"

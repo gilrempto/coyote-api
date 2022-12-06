@@ -1,5 +1,6 @@
 using Coyote.Catalog.Products;
 using Coyote.Catalog.Tests.Functional.Seedwork;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Newtonsoft.Json;
 using System;
@@ -22,6 +23,11 @@ public class ProductTests : IClassFixture<WebApplicationFactory<Startup>>
     public ProductTests(WebApplicationFactory<Startup> factory)
     {
         this.factory = factory;
+
+        this.factory.WithWebHostBuilder(webHostBuilder =>
+        {
+            webHostBuilder.UseEnvironment("Test");
+        });
     }
 
     [Fact(DisplayName = "1. Create product"), TestPriority(1)]

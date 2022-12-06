@@ -13,13 +13,13 @@ builder.Services.AddCatalog(config => config.UsingMongoDB(builder.Configuration.
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
+if (app.Environment.IsDevelopment() || app.Environment.IsEnvironment("Test"))
+{
     app.UseSwagger();
     app.UseSwaggerUI();
-//}
+}
 
-//app.UseHttpsRedirection();
+app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
