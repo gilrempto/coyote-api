@@ -3,7 +3,7 @@ using Coyote.Catalog.Products.Application.Services;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
-public static class CatalogServiceCollectionExtensions
+public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddCatalog(this IServiceCollection services, Action<IServiceCollection> configureServices)
     {

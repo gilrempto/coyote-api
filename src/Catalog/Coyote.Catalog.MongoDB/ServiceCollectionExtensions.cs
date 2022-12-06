@@ -4,7 +4,7 @@ using Coyote.Catalog.Products.Domain.Model;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
-public static class MongoDBCatalogServiceCollectionExtensions
+public static class ServiceCollectionExtensions
 {
     public static void UsingMongoDB(this IServiceCollection services, string connectionString)
     {

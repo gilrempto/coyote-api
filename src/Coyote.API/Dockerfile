@@ -20,5 +20,6 @@ COPY --from=build /publish ./
 ENTRYPOINT ["dotnet", "Coyote.API.dll"]
 
 # docker build -t coyote-api -f .\src\Coyote.API\Dockerfile .
+# docker network create coyote net
 # docker run -it --rm --network coyotenet -p 8082:80 --name coyote-api coyote-api
 # docker run -it --rm --network coyotenet -p 27017:27017 --name mongodb mongo:5.0.9-focal
