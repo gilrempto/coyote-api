@@ -1,5 +1,5 @@
 ﻿using Coyote.Catalog.Products;
-using Coyote.Catalog.Products.Application.Services;
+using Coyote.Catalog.Products.Application;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

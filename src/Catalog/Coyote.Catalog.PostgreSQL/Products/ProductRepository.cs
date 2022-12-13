@@ -1,4 +1,4 @@
-﻿using Coyote.Catalog.Products.Domain.Model;
+﻿using Coyote.Catalog.Products.Domain;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 

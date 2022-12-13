@@ -1,6 +1,6 @@
-﻿using Coyote.Catalog.Products.Domain.Model;
+﻿using Coyote.Catalog.Products.Domain;
 
-namespace Coyote.Catalog.Products.Application.Services;
+namespace Coyote.Catalog.Products.Application;
 
 public class ProductService : IProductService
 {

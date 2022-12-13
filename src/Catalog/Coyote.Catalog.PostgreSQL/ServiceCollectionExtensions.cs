@@ -2,7 +2,7 @@
 
 using Coyote.Catalog.PostgreSQL;
 using Coyote.Catalog.PostgreSQL.Products;
-using Coyote.Catalog.Products.Domain.Model;
+using Coyote.Catalog.Products.Domain;
 using Microsoft.EntityFrameworkCore;
 
 public static class ServiceCollectionExtensions

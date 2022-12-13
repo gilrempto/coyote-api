@@ -1,6 +1,6 @@
 ﻿using Coyote.Catalog.MongoDB;
 using Coyote.Catalog.MongoDB.Products;
-using Coyote.Catalog.Products.Domain.Model;
+using Coyote.Catalog.Products.Domain;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

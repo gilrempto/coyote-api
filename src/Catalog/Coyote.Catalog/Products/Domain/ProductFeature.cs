@@ -1,4 +1,4 @@
-﻿namespace Coyote.Catalog.Products.Domain.Model;
+﻿namespace Coyote.Catalog.Products.Domain;
 
 public class ProductFeature
 {
