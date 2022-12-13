@@ -1,9 +1,9 @@
 {
   "profiles": {
-    "Coyote.API": {
+    "Coyote.API (Test)": {
       "commandName": "Project",
-      "launchUrl": "swagger",
       "launchBrowser": true,
+      "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Test"
       },

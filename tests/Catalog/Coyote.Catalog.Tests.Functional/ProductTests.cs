@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using Xunit;
@@ -23,18 +24,22 @@ public class ProductTests : IClassFixture<WebApplicationFactory<Startup>>
     public ProductTests(WebApplicationFactory<Startup> factory)
     {
         this.factory = factory;
+    }
 
-        this.factory.WithWebHostBuilder(webHostBuilder =>
+    private HttpClient CreateClient()
+    {
+        return factory.WithWebHostBuilder(builder =>
         {
-            webHostBuilder.UseEnvironment("Test");
-        });
+            builder.UseEnvironment("Test");
+        })
+        .CreateClient();
     }
 
     [Fact(DisplayName = "1. Create product"), TestPriority(1)]
     public async Task PostProduct_ReturnsCreatedProduct()
     {
         // Arrange
-        var client = factory.CreateClient();
+        var client = CreateClient();
         var request = new ProductInput
         {
             Name = "London Porter",
@@ -65,7 +70,7 @@ public class ProductTests : IClassFixture<WebApplicationFactory<Startup>>
     public async Task GetProducts_ReturnsNotEmptyProductList()
     {
         // Arrange
-        var client = factory.CreateClient();
+        var client = CreateClient();
 
         // Act
         var response = await client.GetAsync(RequestUri);
@@ -81,7 +86,7 @@ public class ProductTests : IClassFixture<WebApplicationFactory<Startup>>
     public async Task GetProduct_ReturnsProduct()
     {
         // Arrange
-        var client = factory.CreateClient();
+        var client = CreateClient();
         var productId = Product?.Id;
 
         // Act
@@ -98,7 +103,7 @@ public class ProductTests : IClassFixture<WebApplicationFactory<Startup>>
     public async Task PutProduct_ReturnsNoContentAndGetsUpdatedProduct()
     {
         // Arrange
-        var client = factory.CreateClient();
+        var client = CreateClient();
         var request = new ProductInput
         {
             Name = "London Pride",
@@ -130,7 +135,7 @@ public class ProductTests : IClassFixture<WebApplicationFactory<Startup>>
     public async Task DeleteProduct_ReturnsSuccesStatusCode()
     {
         // Arrange
-        var client = factory.CreateClient();
+        var client = CreateClient();
 
         // Act
         var response = await client.DeleteAsync($"{RequestUri}/{Product?.Id}");
